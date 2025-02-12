@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Rune">
+      <UniqueIdentifier>{DF068C7C-CB3D-8D0D-742A-73106040090F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rune\Events">
+      <UniqueIdentifier>{E361D78A-4F17-5080-D80B-4A5744C04684}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Rune.h" />
+    <ClInclude Include="src\Rune\Application.h">
+      <Filter>Rune</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rune\Core.h">
+      <Filter>Rune</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rune\EntryPoint.h">
+      <Filter>Rune</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rune\Events\ApplicationEvent.h">
+      <Filter>Rune\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rune\Events\Event.h">
+      <Filter>Rune\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rune\Events\KeyEvent.h">
+      <Filter>Rune\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rune\Events\MouseEvent.h">
+      <Filter>Rune\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rune\Log.h">
+      <Filter>Rune</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rune_pch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Rune\Application.cpp">
+      <Filter>Rune</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rune\Log.cpp">
+      <Filter>Rune</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rune_pch.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
+</Project>

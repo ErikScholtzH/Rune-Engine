@@ -1,8 +1,13 @@
 #include <Rune.h>
 
+#include "glm/glm.hpp"
+
 class ExampleLayer : public Rune::Layer {
 public:
-	ExampleLayer() : Layer("Example") {}
+	ExampleLayer() : Layer("Example") {
+		glm::vec2 baller = glm::vec2(0.6f, 0.5f);
+		RUNE_INFO("{0}", baller.x);
+	}
 
 	void OnUpdate() override {
 		//RUNE_INFO("ExampleLayer::Update");
@@ -22,6 +27,7 @@ public:
 		PushLayer(new ExampleLayer());
 		PushOverlay(new Rune::ImGuiLayer());
 	}
+
 	~Sandbox() {
 
 	}

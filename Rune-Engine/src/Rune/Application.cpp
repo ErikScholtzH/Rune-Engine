@@ -1,6 +1,6 @@
 #include "rune_pch.h"
 
-#include "application.h"
+#include "Application.h"
 #include "Rune/Events/ApplicationEvent.h"
 #include "Rune/Log.h"
 

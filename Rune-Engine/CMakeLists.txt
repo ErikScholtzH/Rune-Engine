@@ -1,26 +1,24 @@
+cmake_minimum_required(VERSION 3.15)
 project(Rune-Engine LANGUAGES C CXX)
 
-# Add third-party dependencies
+# Configuration options --------------------------------------------------------
+set(ARCHITECTURE "x64")  # Explicitly set architecture for output directory
 
+# Third-party dependencies -----------------------------------------------------
 add_subdirectory(thirdparty/GLFW)
 
-
-
-# Create GLAD target
-
+# GLAD target ------------------------------------------------------------------
 file(GLOB GLAD_SOURCES "thirdparty/glad/src/*.c")
 add_library(glad STATIC ${GLAD_SOURCES})
 target_include_directories(glad PUBLIC 
-
     "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/glad/include"
 )
 
 if(WIN32)
     target_link_libraries(glad PRIVATE opengl32)
-
 endif()
 
-# Create ImGui target
+# ImGui target -----------------------------------------------------------------
 file(GLOB IMGUI_SOURCES
     "thirdparty/imgui/*.cpp"
     "thirdparty/imgui/backends/imgui_impl_glfw.cpp"
@@ -28,46 +26,39 @@ file(GLOB IMGUI_SOURCES
 )
 
 add_library(imgui STATIC ${IMGUI_SOURCES})
-
 target_include_directories(imgui PUBLIC
-
     "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/imgui"
-
     "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/GLFW/include"
-
     "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/glad/include"
-
 )
 target_compile_definitions(imgui PRIVATE IMGUI_IMPL_OPENGL_LOADER_GLAD)
 
-# Source files
+# Main engine library ----------------------------------------------------------
+# Note: Consider explicitly listing source files instead of GLOB
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 file(GLOB_RECURSE HEADERS "src/*.h")
 
-# Create shared library
 add_library(Rune-Engine SHARED ${SOURCES} ${HEADERS})
-
-# Precompiled headers
 target_precompile_headers(Rune-Engine PRIVATE src/rune_pch.h)
 
-# Include directories
-
+# Include directories ----------------------------------------------------------
 target_include_directories(Rune-Engine PUBLIC
     "src"
     "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/spdlog/include"
     "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/GLFW/include"
     "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/glad/include"
+    "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/glm"  # GLM is header-only
+    "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/imgui"
 )
 
-# Link dependencies
+# Dependencies -----------------------------------------------------------------
 target_link_libraries(Rune-Engine PRIVATE 
     glfw
     glad
-    imgui  # Link ImGui
-
+    imgui
 )
 
-# Platform-specific settings
+# Platform-specific configuration ----------------------------------------------
 if(WIN32)
     target_compile_definitions(Rune-Engine PRIVATE 
         RUNE_PLATFORM_WINDOWS 
@@ -83,40 +74,30 @@ if(WIN32)
         user32 
         shell32
     )
-
 endif()
 
-# Configuration-specific preprocessor definitions
-
+# Configurations ---------------------------------------------------------------
 target_compile_definitions(Rune-Engine PRIVATE
     $<$<CONFIG:Debug>:RUNE_DEBUG>
     $<$<CONFIG:Release>:RUNE_RELEASE>
     $<$<CONFIG:Dist>:RUNE_DIST>
-
 )
 
-
-
-# Set MSVC runtime to dynamic
-
+# MSVC runtime configuration ---------------------------------------------------
 if(MSVC)
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
     set_target_properties(Rune-Engine PROPERTIES
-        MSVC_RUNTIME_LIBRARY $<$<CONFIG:Debug>:MultiThreadedDebugDLL>$<$<NOT:$<CONFIG:Debug>>:MultiThreadedDLL>
+        MSVC_RUNTIME_LIBRARY "${CMAKE_MSVC_RUNTIME_LIBRARY}"
     )
-
 endif()
 
-
-
-# Post-build command to copy DLL to Sandbox output directory
+# Post-build operations --------------------------------------------------------
+set(TARGET_OUTPUT_DIR "${CMAKE_SOURCE_DIR}/bin/${CMAKE_CFG_INTDIR}-${CMAKE_SYSTEM_NAME}-${ARCHITECTURE}/Sandbox")
 
 add_custom_command(TARGET Rune-Engine POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${TARGET_OUTPUT_DIR}"
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
         $<TARGET_FILE:Rune-Engine>
-        "${CMAKE_SOURCE_DIR}/bin/${CMAKE_CFG_INTDIR}-${CMAKE_SYSTEM_NAME}-${ARCHITECTURE}/Sandbox"
-
+        "${TARGET_OUTPUT_DIR}"
+    COMMENT "Copying Rune-Engine DLL to Sandbox directory"
 )
-
-
-
-set_target_outputs(Rune-Engine)

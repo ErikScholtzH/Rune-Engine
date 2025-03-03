@@ -18,5 +18,5 @@ int main(int argc, char** argv) {
 	return 0;
 }
 #else
-	#error Rune is only currently supported on windows
+	#error Rune Engine is only currently supported on windows
 #endif

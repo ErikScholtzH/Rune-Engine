@@ -1,0 +1,15 @@
+#pragma once 
+
+// from glfw3.h
+#define RUNE_MOUSE_BUTTON_1         0
+#define RUNE_MOUSE_BUTTON_2         1
+#define RUNE_MOUSE_BUTTON_3         2
+#define RUNE_MOUSE_BUTTON_4         3
+#define RUNE_MOUSE_BUTTON_5         4
+#define RUNE_MOUSE_BUTTON_6         5
+#define RUNE_MOUSE_BUTTON_7         6
+#define RUNE_MOUSE_BUTTON_8         7
+#define RUNE_MOUSE_BUTTON_LAST      RUNE_MOUSE_BUTTON_8
+#define RUNE_MOUSE_BUTTON_LEFT      RUNE_MOUSE_BUTTON_1
+#define RUNE_MOUSE_BUTTON_RIGHT     RUNE_MOUSE_BUTTON_2
+#define RUNE_MOUSE_BUTTON_MIDDLE    RUNE_MOUSE_BUTTON_3

@@ -7,7 +7,7 @@ extern Rune::Application* Rune::CreateApplication();
 int main(int argc, char** argv) {
 	Rune::Log::Init();
 
-	RUNE_CORE_WARN("Core logger set up");
+	RUNE_CORE_INFO("Core logger set up");
 	RUNE_INFO("Client logger set up");
 
 

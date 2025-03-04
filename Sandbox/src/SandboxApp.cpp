@@ -1,6 +1,7 @@
 #include <Rune.h>
 
 #include "glm/glm.hpp"
+#include "imgui.h"
 
 class ExampleLayer : public Rune::Layer {
 public:
@@ -16,6 +17,13 @@ public:
 		}
 	}
 
+	virtual void OnImGuiRender() override
+	{
+		ImGui::Begin("Test");
+		ImGui::Text("Hello World");
+		ImGui::End();
+	}
+
 	void OnEvent(Rune::Event& e) override {
 		//RUNE_INFO(e.ToString());
 	}
@@ -25,7 +33,6 @@ class Sandbox : public Rune::Application {
 public: 
 	Sandbox() {
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Rune::ImGuiLayer());
 	}
 
 	~Sandbox() {

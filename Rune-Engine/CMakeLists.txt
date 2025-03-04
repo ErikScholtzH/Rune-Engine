@@ -38,7 +38,7 @@ target_compile_definitions(imgui PRIVATE IMGUI_IMPL_OPENGL_LOADER_GLAD)
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 file(GLOB_RECURSE HEADERS "src/*.h")
 
-add_library(Rune-Engine SHARED ${SOURCES} ${HEADERS})
+add_library(Rune-Engine STATIC ${SOURCES} ${HEADERS})
 target_precompile_headers(Rune-Engine PRIVATE src/rune_pch.h)
 
 # Include directories ----------------------------------------------------------
@@ -90,14 +90,3 @@ if(MSVC)
         MSVC_RUNTIME_LIBRARY "${CMAKE_MSVC_RUNTIME_LIBRARY}"
     )
 endif()
-
-# Post-build operations --------------------------------------------------------
-set(TARGET_OUTPUT_DIR "${CMAKE_SOURCE_DIR}/bin/${CMAKE_CFG_INTDIR}-${CMAKE_SYSTEM_NAME}-${ARCHITECTURE}/Sandbox")
-
-add_custom_command(TARGET Rune-Engine POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E make_directory "${TARGET_OUTPUT_DIR}"
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        $<TARGET_FILE:Rune-Engine>
-        "${TARGET_OUTPUT_DIR}"
-    COMMENT "Copying Rune-Engine DLL to Sandbox directory"
-)

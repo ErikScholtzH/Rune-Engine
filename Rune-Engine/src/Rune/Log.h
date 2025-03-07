@@ -8,8 +8,7 @@
 
 
 namespace Rune {
-	class RUNE_API Log
-	{
+	class RUNE_API Log {
 	public:
 		static void Init();
 

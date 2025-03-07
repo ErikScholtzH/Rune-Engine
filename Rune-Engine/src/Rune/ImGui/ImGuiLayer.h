@@ -6,8 +6,7 @@
 #include "Rune/Events/ApplicationEvent.h"
 
 namespace Rune {
-	class RUNE_API ImGuiLayer : public Layer
-	{
+	class RUNE_API ImGuiLayer : public Layer {
 	public:
 		ImGuiLayer();
 		~ImGuiLayer();

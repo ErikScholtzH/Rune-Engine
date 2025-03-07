@@ -15,6 +15,7 @@
 namespace Rune {
 
 	ImGuiLayer::ImGuiLayer() : Layer("ImGuiLayer") {
+
 	}
 
 	ImGuiLayer::~ImGuiLayer() {

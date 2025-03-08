@@ -1,23 +1,18 @@
 #pragma once
 
-#include "Core.h"
-#include "Rune/Events/Event.h"
-#include "Rune/Events/ApplicationEvent.h"
+#include "Rune/Core/Core.h"
 
+#include "Rune/Core/Events/Event.h"
+#include "Rune/Core/Events/ApplicationEvent.h"
 
 #include "Window.h"
 #include "Rune/LayerStack.h"
 #include "ImGui/ImGuiLayer.h"
 
-#include "Rune/Renderer/Shader.h"
-#include "Rune/Renderer/VertexArray.h"
-#include "Rune/Renderer/VertexBuffer.h"
-#include "Rune/Renderer/IndexBuffer.h"
-#include "Rune/Renderer/Camera.h"
-
+#include "Rune/Core/Timestep.h"
 
 namespace Rune {
-	class RUNE_API Application {
+	class Application {
 	public:
 		Application();
 		virtual ~Application();
@@ -33,18 +28,12 @@ namespace Rune {
 		inline static Application& Get() { return *s_Instance; }
 	private:
 		bool onWindowClose(WindowCloseEvent& e);
-		std::unique_ptr<Window> m_Window;
-		ImGuiLayer* m_ImGuiLayer;
 
+		Scope<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
-
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<VertexArray> m_VertexArray;
-		std::shared_ptr<Shader> m_BlueShader;
-		std::shared_ptr<VertexArray> m_SquareVA;
-
-		Camera m_Camera;
+		float m_LastFrameTime = 0.0f;
 
 		static Application* s_Instance;
 

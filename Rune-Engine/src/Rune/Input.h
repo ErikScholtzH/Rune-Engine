@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Rune/Core.h"
+#include "Rune/Core/Core.h"
 
 namespace Rune {
 	class RUNE_API Input {

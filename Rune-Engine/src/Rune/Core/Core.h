@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 
 #ifdef RUNE_PLATFORM_WINDOWS // TODO this macro does not exist yet
 	#ifdef RUNE_BUILD_DLL
@@ -22,3 +23,15 @@
 #define BIT(x) (1 << x)
 
 #define RUNE_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
+
+
+namespace Rune {
+	template <typename T>
+	using Ref = std::shared_ptr<T>; // Reference counted pointer
+
+	template <typename T>
+	using Scope = std::unique_ptr<T>; // Scoped pointer
+
+	template <typename T>
+	using Weak = std::weak_ptr<T>; // Weak pointer
+}

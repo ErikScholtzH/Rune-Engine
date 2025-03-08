@@ -2,8 +2,8 @@
 
 #include "rune_pch.h"
 
-#include "Rune/Core.h"
-#include "Rune/Events/Event.h"
+#include "Rune/Core/Core.h"
+#include "Rune/Core/Events/Event.h"
 
 #include <GLFW/glfw3.h>
 

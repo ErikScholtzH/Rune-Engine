@@ -11,7 +11,7 @@
 #include <utility>
 #include <vector>
 
-#include "Rune/Log.h"
+#include "Rune/Core/Log.h"
 
 
 #ifdef RUNE_PLATFORM_WINDOWS

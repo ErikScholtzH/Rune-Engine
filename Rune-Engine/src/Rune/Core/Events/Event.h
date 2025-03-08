@@ -1,7 +1,7 @@
 #pragma once
 
 #include "rune_pch.h"
-#include "Rune/Core.h"
+#include "Rune/Core/Core.h"
 
 namespace Rune {
 	

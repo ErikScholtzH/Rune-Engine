@@ -1,9 +1,9 @@
 #pragma once
 #include "Rune/Layer.h"
 
-#include "Rune/Events/KeyEvent.h"
-#include "Rune/Events/MouseEvent.h"
-#include "Rune/Events/ApplicationEvent.h"
+#include "Rune/Core/Events/KeyEvent.h"
+#include "Rune/Core/Events/MouseEvent.h"
+#include "Rune/Core/Events/ApplicationEvent.h"
 
 namespace Rune {
 	class RUNE_API ImGuiLayer : public Layer {

@@ -1,7 +1,9 @@
 #pragma once
 
-#include "Rune/Core.h"
-#include "Rune/Events/Event.h"
+#include "Rune/Core/Core.h"
+#include "Rune/Core/Events/Event.h"
+
+#include "Rune/Core/Timestep.h"
 
 namespace Rune {
 	class RUNE_API Layer {
@@ -11,7 +13,7 @@ namespace Rune {
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep timestep) {}
 		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& e) {}
 

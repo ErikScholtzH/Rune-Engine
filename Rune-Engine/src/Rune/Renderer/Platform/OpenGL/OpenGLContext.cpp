@@ -15,6 +15,11 @@ namespace Rune {
 		glfwMakeContextCurrent(m_WindowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		RUNE_CORE_ASSERT(status, "Failed to initialize Glad!");
+
+		RUNE_CORE_INFO("OpenGL Info:");
+		RUNE_CORE_INFO("  Vendor: {0}", (const char*) glGetString(GL_VENDOR));
+		RUNE_CORE_INFO("  Renderer: {0}", (const char*) glGetString(GL_RENDERER));
+		RUNE_CORE_INFO("  Version: {0}", (const char*) glGetString(GL_VERSION));
 	}
 
 	void OpenGLContext::SwapBuffers() {

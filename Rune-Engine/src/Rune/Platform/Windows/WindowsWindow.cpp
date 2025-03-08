@@ -1,10 +1,11 @@
 #include "rune_pch.h"
 #include "WindowsWindow.h"
 
+#include "Rune/Core/Events/ApplicationEvent.h"
+#include "Rune/Core/Events/KeyEvent.h"
+#include "Rune/Core/Events/MouseEvent.h"
+
 #include "Rune/Renderer/Platform/OpenGL/OpenGLContext.h"
-#include "Rune/Events/ApplicationEvent.h"
-#include "Rune/Events/KeyEvent.h"
-#include "Rune/Events/MouseEvent.h"
 
 
 namespace Rune {

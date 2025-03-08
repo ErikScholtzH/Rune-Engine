@@ -20,7 +20,7 @@ namespace Rune {
 		const glm::vec3& GetPosition() { return m_Position;  }
 		const glm::vec3& GetDirection() { return m_Direction; }
 		const glm::vec3& GetUpVector() { return m_Up; }
-		const glm::vec3& getRotation() { return m_Rotation; }
+		const glm::vec3& GetRotation() { return m_Rotation; }
 
 		void SetPosition(glm::vec3 position) { m_Position = position; RecalculateViewMarix(); }
 		void SetRotation(glm::vec3 rotation) { m_Rotation = rotation; RecalculateViewMarix(); }
@@ -32,6 +32,9 @@ namespace Rune {
 
 		const glm::mat4& GetTransformRotation();
 
+
+		const inline float GetCameraSpeed() const { return m_CameraSpeed; }
+		const inline float GetCameraRotationSpeed() const { return m_CameraRotationSpeed; }
 		const inline float GetNear() const { return m_NearPlane; }
 		const inline float GetFar() const { return m_FarPlane; }
 
@@ -56,7 +59,8 @@ namespace Rune {
 		float m_Fov = 90.0f;
 		float m_Exposure = 1.0f;
 		float m_Gamma = 2.0f;
-		float m_Speed = 1.0f;
+		float m_CameraSpeed = 5.0f;
+		float m_CameraRotationSpeed = 90.0f;
 
 		float m_NearPlane = 0.001f;
 		float m_FarPlane = 400.0f;

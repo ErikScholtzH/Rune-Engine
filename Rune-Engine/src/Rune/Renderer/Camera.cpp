@@ -5,12 +5,14 @@
 namespace Rune {
 
 	Camera::Camera() : m_Type(CameraType::Perspective) { // TODO provide defaults values
-		m_Position = glm::vec3(1.0f, 0.0f, 2.0f);
+		m_Position = glm::vec3(0.0f, 0.0f, 2.0f);
 		glm::vec3 target = glm::vec3(0.0f, 0.0f, 0.0f);
 		m_Direction = glm::normalize(m_Position - target);
 		glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f);
 		m_Right = glm::normalize(glm::cross(up, m_Direction));
 		m_Up = glm::normalize(glm::cross(m_Direction, m_Right));
+
+		m_Rotation = glm::vec3(0.0f, 0.0f, 0.0f);
 
 		m_ViewMatrix = glm::lookAt(m_Position, m_Position + m_Direction, m_Up);
 		m_ProjectionMatrix = glm::perspective(glm::radians(m_Fov), m_AspectRatio, m_NearPlane, m_FarPlane);

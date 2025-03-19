@@ -5,6 +5,10 @@ namespace Rune {
 
 	Renderer::SceneData* Renderer::m_SceneData = new Renderer::SceneData;
 
+	void Renderer::Init(){
+		RenderCommand::Init();
+	}
+
 	void Renderer::BeginScene(Camera& camera) {
 		m_SceneData->ViewProjectionMatrix = camera.GetViewProjectionMatrix();
 	}

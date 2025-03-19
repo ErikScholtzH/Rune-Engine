@@ -11,6 +11,6 @@ namespace Rune {
 
 		virtual uint32_t GetCount() const = 0;
 
-		static IndexBuffer* Create(uint32_t* vertices, uint32_t size);
+		static Ref<IndexBuffer>  Create(uint32_t* vertices, uint32_t size);
 	};
 }

@@ -7,10 +7,20 @@
 #include "Rune/Renderer/Platform/OpenGL/Shaders/OpenGLShader.h"
 
 namespace Rune {
-	Shader* Shader::Create(const std::string& vertexSrc, const std::string& fragmentSrc) {
+	Ref<Shader> Shader::Create(const std::string& vertexSrc, const std::string& fragmentSrc) {
 		switch (Renderer::GetAPI()) {
 		case RendererAPI::API::None:    RUNE_CORE_ASSERT(false, "RendererAPI::None is currently not supported"); return nullptr;
-		case RendererAPI::API::OpenGL:  return new OpenGLShader(vertexSrc, fragmentSrc);
+		case RendererAPI::API::OpenGL:  return std::make_shared<OpenGLShader>(vertexSrc, fragmentSrc);
+		}
+
+		RUNE_CORE_ASSERT(false, "Unknown RendererAPI");
+		return nullptr;
+	}
+
+	Ref<Shader> Shader::Create(const std::string& filepath) {
+		switch (Renderer::GetAPI()) {
+		case RendererAPI::API::None:    RUNE_CORE_ASSERT(false, "RendererAPI::None is currently not supported"); return nullptr;
+		case RendererAPI::API::OpenGL:  return std::make_shared<OpenGLShader>(filepath);
 		}
 
 		RUNE_CORE_ASSERT(false, "Unknown RendererAPI");

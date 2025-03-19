@@ -10,7 +10,7 @@ add_executable(Sandbox ${SOURCES} ${HEADERS})
 # Include directories
 target_include_directories(Sandbox PRIVATE
     "${CMAKE_SOURCE_DIR}/Rune-Engine/src"
-    "${CMAKE_SOURCE_DIR}/Rune-Engine/vendor/"
+    "${CMAKE_SOURCE_DIR}/Rune-Engine/thirdparty/"
 )
 
 # Link dependencies

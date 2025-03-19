@@ -19,7 +19,7 @@ namespace Rune {
 		RecalculateViewMarix();
 	}
 
-	Camera::Camera(CameraType type, glm::vec3 position) { // TODO provide defaults values
+	Camera::Camera(CameraType type, glm::vec3 position) : m_Type(type) { // TODO provide defaults values
 		m_Position = position;
 		glm::vec3 target = glm::vec3(0.0f, 0.0f, 0.0f);
 		m_Direction = glm::normalize(m_Position - target);
@@ -50,6 +50,38 @@ namespace Rune {
 		}
 		};
 		RecalculateViewMarix();
+	}
+
+	void Camera::SetProjection(float fov, float aspectRatio, float nearPlane, float farPlane) {
+		CameraType type = GetType();
+		switch (type) {
+		case CameraType::Ortholinear: {
+			float OrthoSize = 10.0f;
+			float OrthoLeft = -OrthoSize * aspectRatio;
+			float OrthoRight = OrthoSize * aspectRatio;
+			float OrthoBottom = -OrthoSize;
+			float OrthoTop = OrthoSize;
+			m_ProjectionMatrix = glm::ortho(OrthoLeft, OrthoRight, OrthoBottom, OrthoTop, nearPlane, farPlane);
+			m_Fov = fov;
+			m_AspectRatio = aspectRatio;
+			m_NearPlane = nearPlane;
+			m_FarPlane = farPlane;
+			break;
+		}
+		case CameraType::Perspective: {
+			m_ProjectionMatrix = glm::perspective(glm::radians(fov), aspectRatio, nearPlane, farPlane);
+			m_Fov = fov;
+			m_AspectRatio = aspectRatio;
+			m_NearPlane = nearPlane;
+			m_FarPlane = farPlane;
+			break;
+		}
+		default: {
+			RUNE_CORE_ASSERT(false, "Unknown camera type");
+			break;
+		}
+		};
+		m_ViewProjectionMatrix = m_ProjectionMatrix * m_ViewMatrix;
 	}
 
 	Camera::~Camera() {

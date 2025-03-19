@@ -26,6 +26,7 @@
 
 
 namespace Rune {
+
 	template <typename T>
 	using Ref = std::shared_ptr<T>; // Reference counted pointer
 
@@ -34,4 +35,5 @@ namespace Rune {
 
 	template <typename T>
 	using Weak = std::weak_ptr<T>; // Weak pointer
+
 }

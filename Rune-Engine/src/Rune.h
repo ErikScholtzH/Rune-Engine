@@ -9,6 +9,8 @@
 #include "Rune/Input.h"
 #include "Rune/KeyCodes.h"
 #include "Rune/MouseCodes.h"
+#include "Rune/CameraController.h"
+
 
 // UI related
 #include "Rune/Layer.h"
@@ -18,6 +20,7 @@
 // renderer related
 #include "Rune/Renderer/Renderer.h"
 #include "Rune/Renderer/Shader.h"
+#include "Rune/Renderer/Texture.h"
 #include "Rune/Renderer/VertexArray.h"
 #include "Rune/Renderer/VertexBuffer.h"
 #include "Rune/Renderer/IndexBuffer.h"

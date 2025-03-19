@@ -24,8 +24,8 @@ file(GLOB IMGUI_SOURCES
     "thirdparty/imgui/backends/imgui_impl_glfw.cpp"
     "thirdparty/imgui/backends/imgui_impl_opengl3.cpp"
 )
-
 add_library(imgui STATIC ${IMGUI_SOURCES})
+
 target_include_directories(imgui PUBLIC
     "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/imgui"
     "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/GLFW/include"
@@ -33,13 +33,20 @@ target_include_directories(imgui PUBLIC
 )
 target_compile_definitions(imgui PRIVATE IMGUI_IMPL_OPENGL_LOADER_GLAD)
 
+# stb_image target -------------------------------------------------------------
+file(GLOB STB_IMAGE_SOURCES "thirdparty/stb_image/stb_image.cpp")
+add_library(stb_image STATIC ${STB_IMAGE_SOURCES})
+target_include_directories(stb_image PUBLIC 
+    "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/stb_image"
+)
+
 # Main engine library ----------------------------------------------------------
 # Note: Consider explicitly listing source files instead of GLOB
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 file(GLOB_RECURSE HEADERS "src/*.h")
 
 add_library(Rune-Engine STATIC ${SOURCES} ${HEADERS})
-target_precompile_headers(Rune-Engine PRIVATE src/rune_pch.h)
+target_precompile_headers(Rune-Engine PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/src/rune_pch.h")
 
 # Include directories ----------------------------------------------------------
 target_include_directories(Rune-Engine PUBLIC
@@ -49,6 +56,7 @@ target_include_directories(Rune-Engine PUBLIC
     "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/glad/include"
     "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/glm"  # GLM is header-only
     "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/imgui"
+    "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/stb_image"
 )
 
 # Dependencies -----------------------------------------------------------------
@@ -56,6 +64,7 @@ target_link_libraries(Rune-Engine PRIVATE
     glfw
     glad
     imgui
+    stb_image
 )
 
 # Platform-specific configuration ----------------------------------------------
@@ -64,6 +73,7 @@ if(WIN32)
         RUNE_PLATFORM_WINDOWS 
         RUNE_BUILD_DLL
         GLFW_INCLUDE_NONE
+        RUNE_ENABLE_ASSERTS
     )
 
     target_compile_options(Rune-Engine PRIVATE /Wall)

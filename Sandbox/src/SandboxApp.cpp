@@ -2,13 +2,15 @@
 
 #include "glm/glm.hpp"
 #include "imgui.h"
+#include <filesystem>
+
 
 class ExampleLayer : public Rune::Layer {
 public:
-	ExampleLayer() : Layer("Example"), m_SquarePosition(0.0f){
-		m_Camera = Rune::Camera();
+	ExampleLayer() : Layer("Example"), m_SquarePosition(0.0f) {
+		m_CameraController = Rune::CameraController(10.0f / 9.0f, Rune::Camera::CameraType::Perspective, glm::vec3(0.0f,0.0f,2.0f));
 
-		m_VertexArray.reset(Rune::VertexArray::Create());
+		m_VertexArray = Rune::VertexArray::Create();
 
 		float vertices[3 * 7] = {
 			-0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f,
@@ -17,7 +19,7 @@ public:
 		};
 
 		Rune::Ref<Rune::VertexBuffer> vertexBuffer;
-		vertexBuffer.reset(Rune::VertexBuffer::Create(vertices, sizeof(vertices)));
+		vertexBuffer = Rune::VertexBuffer::Create(vertices, sizeof(vertices));
 		Rune::BufferLayout layout = {
 			{ Rune::ShaderDataType::Float3, "a_Position" },
 			{ Rune::ShaderDataType::Float4, "a_Color" }
@@ -28,145 +30,62 @@ public:
 
 		uint32_t indices[3] = { 0, 1, 2 };
 		Rune::Ref<Rune::IndexBuffer> indexBuffer;
-		indexBuffer.reset(Rune::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		indexBuffer = Rune::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
-		m_SquareVA.reset(Rune::VertexArray::Create());
-		float squareVertices[3 * 4] = {
-			-0.75f, -0.75f, 0.0f,
-			 0.75f, -0.75f, 0.0f,
-			 0.75f,  0.75f, 0.0f,
-			-0.75f,  0.75f, 0.0f
+		m_SquareVA = Rune::VertexArray::Create();
+		float squareVertices[5 * 4] = {
+			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
+			 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+			 0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
+			-0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 		};
 		Rune::Ref<Rune::VertexBuffer> squareVB;
-		squareVB.reset(Rune::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+		squareVB = Rune::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
 		squareVB->SetLayout({
-			{ Rune::ShaderDataType::Float3, "a_Position" }
+			{ Rune::ShaderDataType::Float3, "a_Position" },
+			{ Rune::ShaderDataType::Float2, "a_TexCoord" }
 			});
 		m_SquareVA->AddVertexBuffer(squareVB);
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
 		Rune::Ref<Rune::IndexBuffer> squareIB;
-		squareIB.reset(Rune::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+		squareIB = Rune::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
-		std::string vertexSrc = R"(
-			#version 330 core
-			
-			layout(location = 0) in vec3 a_Position;
-			layout(location = 1) in vec4 a_Color;
+		// TODO find fix for hack
+		static std::filesystem::path cwd = std::filesystem::path(__FILE__).parent_path().parent_path();
+		static std::filesystem::path shader1 = cwd / "assets/shaders/m_shader.glsl";
+		m_Shader = Rune::Shader::Create(shader1.string());
 
-			uniform mat4 u_ViewProjection;
-			uniform mat4 u_TransformMatrix;
+		static std::filesystem::path shader2 = cwd / "assets/shaders/blueSquare.glsl";
+		m_BlueShader = Rune::Shader::Create(shader2.string());
 
-			out vec3 v_Position;
-			out vec4 v_Color;
-
-			void main()
-			{
-				v_Position = a_Position;
-				v_Color = a_Color;
-				gl_Position = u_ViewProjection * u_TransformMatrix * vec4(a_Position, 1.0);	
-			}
-		)";
-
-		std::string fragmentSrc = R"(
-			#version 330 core
-			
-			layout(location = 0) out vec4 color;
-
-			in vec3 v_Position;
-			in vec4 v_Color;
-
-			void main()
-			{
-				color = vec4(v_Position * 0.5 + 0.5, 1.0);
-				color = v_Color;
-			}
-		)";
-		m_Shader.reset(Rune::Shader::Create(vertexSrc, fragmentSrc));
-
-		std::string blueShaderVertexSrc = R"(
-			#version 330 core
-
-			layout(location = 0) in vec3 a_Position;
-
-			uniform mat4 u_ViewProjection;
-			uniform mat4 u_TransformMatrix;
-
-			out vec3 v_Position;
-
-			void main()
-			{
-				v_Position = a_Position;
-
-				gl_Position = u_ViewProjection * u_TransformMatrix * vec4(a_Position, 1.0);	
-			}
-		)";
-
-		std::string blueShaderFragmentSrc = R"(
-			#version 330 core
-
-			layout(location = 0) out vec4 color;
-
-			in vec3 v_Position;
-
-			void main()
-			{
-				color = vec4(0.2, 0.3, 0.8, 1.0);
-			}
-		)";
-		m_BlueShader.reset(Rune::Shader::Create(blueShaderVertexSrc, blueShaderFragmentSrc));
+		static std::filesystem::path shader3 = cwd / "assets/shaders/squareTexture.glsl";
+		m_TextureShader = Rune::Shader::Create(shader3.string());
+		
+		static std::filesystem::path texture1 = cwd / "assets/textures/Wood01.png";
+		m_Texture = Rune::Texture2D::Create(texture1.string());
+		std::dynamic_pointer_cast<Rune::Shader>(m_TextureShader)->Bind();
+		std::dynamic_pointer_cast<Rune::Shader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 	void OnUpdate(Rune::Timestep timestep) override {
-
-		if (Rune::Input::IsKeyPressed(RUNE_KEY_A)) {
-			m_CameraPosition.x -= m_Camera.GetCameraSpeed() * timestep;
-		}
-		else if (Rune::Input::IsKeyPressed(RUNE_KEY_D)) {
-			m_CameraPosition.x += m_Camera.GetCameraSpeed() * timestep;
-		}
-		else if (Rune::Input::IsKeyPressed(RUNE_KEY_SPACE)) {
-			m_CameraPosition.y += m_Camera.GetCameraSpeed() * timestep;
-		}
-		else if (Rune::Input::IsKeyPressed(RUNE_KEY_LEFT_CONTROL)) {
-			m_CameraPosition.y -= m_Camera.GetCameraSpeed() * timestep;
-		}
-		else if (Rune::Input::IsKeyPressed(RUNE_KEY_W)) {
-			m_CameraPosition.z -= m_Camera.GetCameraSpeed() * timestep;
-		}
-		else if (Rune::Input::IsKeyPressed(RUNE_KEY_S)) {
-			m_CameraPosition.z += m_Camera.GetCameraSpeed() * timestep;
-		}
-		else if (Rune::Input::IsKeyPressed(RUNE_KEY_UP)) {
-			m_CameraRotation.x -= m_Camera.GetCameraRotationSpeed() * timestep;
-		}
-		else if (Rune::Input::IsKeyPressed(RUNE_KEY_DOWN)) {
-			m_CameraRotation.x += m_Camera.GetCameraRotationSpeed() * timestep;
-		}
-		else if (Rune::Input::IsKeyPressed(RUNE_KEY_LEFT)) {
-			m_CameraRotation.y += m_Camera.GetCameraRotationSpeed() * timestep;
-		}
-		else if (Rune::Input::IsKeyPressed(RUNE_KEY_RIGHT)) {
-			m_CameraRotation.y -= m_Camera.GetCameraRotationSpeed() * timestep;
-		}
-		else if (Rune::Input::IsKeyPressed(RUNE_KEY_RIGHT)) {
-			m_CameraRotation.y -= m_Camera.GetCameraRotationSpeed() * timestep;
-		}
-
-		m_Camera.SetRotation(m_CameraRotation);
-		m_Camera.SetPosition(m_CameraPosition);
+		glm::vec3 pos = m_CameraController.GetCamera().GetPosition();
+		m_CameraController.OnUpdate(timestep);
+		RUNE_INFO("Camera Pos: ({0}, {1}, {2})", pos.x, pos.y, pos.z);
 		Rune::RenderCommand::SetClearColor({ 0.05f, 0.05f, 0.05f, 1 });
 		Rune::RenderCommand::Clear();
-		Rune::Renderer::BeginScene(m_Camera);
+		Rune::Renderer::BeginScene(m_CameraController.GetCamera());
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 		for (int y = 0; y < 20; y++) {
 			for (int x = 0; x < 20; x++) {
-				glm::vec3 pos(x * 0.20f, y * 0.20f, 0.0f);
+				glm::vec3 pos(x * 0.11f, y * 0.11f, 0.0f);
 				glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
 				Rune::Renderer::Submit(m_SquareVA, m_BlueShader, transform);
 			}
 		}
+		m_Texture->Bind();
+		Rune::Renderer::Submit(m_SquareVA, m_TextureShader, glm::mat4(1.0f));
 		Rune::Renderer::Submit(m_VertexArray, m_Shader);
 		Rune::Renderer::EndScene();
 	}
@@ -176,21 +95,23 @@ public:
 	}
 
 	void OnEvent(Rune::Event& e) override {
-
+		m_CameraController.OnEvent(e);
 	}
 
 private:
 	Rune::Ref<Rune::Shader> m_Shader;
 	Rune::Ref<Rune::VertexArray> m_VertexArray;
 	Rune::Ref<Rune::Shader> m_BlueShader;
+	
 	Rune::Ref<Rune::VertexArray> m_SquareVA;
 
-	Rune::Camera m_Camera;
-	glm::vec3 m_CameraPosition = m_Camera.GetPosition();
-	glm::vec3 m_CameraRotation = m_Camera.GetRotation();
+	Rune::CameraController m_CameraController;
 
 	glm::vec3 m_SquarePosition;
 	float m_SquareMoveSpeed = 1.0f;
+
+	Rune::Ref<Rune::Shader> m_TextureShader;
+	Rune::Ref<Rune::Texture2D> m_Texture;
 };
 
 class Sandbox : public Rune::Application {

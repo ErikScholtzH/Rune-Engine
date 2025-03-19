@@ -4,12 +4,12 @@
 
 #include "Rune/Core/Events/Event.h"
 #include "Rune/Core/Events/ApplicationEvent.h"
+#include "Rune/Core/Timestep.h"
 
-#include "Window.h"
 #include "Rune/LayerStack.h"
 #include "ImGui/ImGuiLayer.h"
 
-#include "Rune/Core/Timestep.h"
+#include "Window.h"
 
 namespace Rune {
 	class Application {

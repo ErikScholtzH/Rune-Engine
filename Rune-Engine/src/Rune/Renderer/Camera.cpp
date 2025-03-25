@@ -5,6 +5,7 @@
 namespace Rune {
 
 	Camera::Camera() : m_Type(CameraType::Perspective) { // TODO provide defaults values
+		RUNE_PROFILE_FUNCTION();
 		m_Position = glm::vec3(0.0f, 0.0f, 2.0f);
 		glm::vec3 target = glm::vec3(0.0f, 0.0f, 0.0f);
 		m_Direction = glm::normalize(m_Position - target);
@@ -20,6 +21,7 @@ namespace Rune {
 	}
 
 	Camera::Camera(CameraType type, glm::vec3 position) : m_Type(type) { // TODO provide defaults values
+		RUNE_PROFILE_FUNCTION();
 		m_Position = position;
 		glm::vec3 target = glm::vec3(0.0f, 0.0f, 0.0f);
 		m_Direction = glm::normalize(m_Position - target);
@@ -53,6 +55,7 @@ namespace Rune {
 	}
 
 	void Camera::SetProjection(float fov, float aspectRatio, float nearPlane, float farPlane) {
+		RUNE_PROFILE_FUNCTION();
 		CameraType type = GetType();
 		switch (type) {
 		case CameraType::Ortholinear: {
@@ -69,6 +72,7 @@ namespace Rune {
 			break;
 		}
 		case CameraType::Perspective: {
+			RUNE_PROFILE_FUNCTION();
 			m_ProjectionMatrix = glm::perspective(glm::radians(fov), aspectRatio, nearPlane, farPlane);
 			m_Fov = fov;
 			m_AspectRatio = aspectRatio;
@@ -85,10 +89,11 @@ namespace Rune {
 	}
 
 	Camera::~Camera() {
-
+		RUNE_PROFILE_FUNCTION();
 	}
 
 	void Camera::RecalculateViewMarix() {
+		RUNE_PROFILE_FUNCTION();
 		glm::mat4 rotationX = glm::rotate(glm::mat4(1.0f), glm::radians(m_Rotation.x), glm::vec3(1, 0, 0));
 		glm::mat4 rotationY = glm::rotate(glm::mat4(1.0f), glm::radians(m_Rotation.y), glm::vec3(0, 1, 0));
 		glm::mat4 rotationZ = glm::rotate(glm::mat4(1.0f), glm::radians(m_Rotation.z), glm::vec3(0, 0, 1));

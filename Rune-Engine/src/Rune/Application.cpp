@@ -17,6 +17,7 @@ namespace Rune {
 	Application* Application::s_Instance = nullptr;
 
 	Application::Application() {
+		RUNE_PROFILE_FUNCTION();
 		RUNE_CORE_ASSERT(!s_Instance, "Application already running");
 		s_Instance = this;
 
@@ -30,7 +31,8 @@ namespace Rune {
 	}
 
 	Application::~Application() {
-
+		RUNE_PROFILE_FUNCTION();
+		Renderer::Shutdown();
 	}
 
 	void Application::PushLayer(Layer* layer) {

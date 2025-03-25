@@ -57,6 +57,8 @@ target_include_directories(Rune-Engine PUBLIC
     "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/glm"  # GLM is header-only
     "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/imgui"
     "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/stb_image"
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
+    $<INSTALL_INTERFACE:include>
 )
 
 # Dependencies -----------------------------------------------------------------
@@ -74,6 +76,7 @@ if(WIN32)
         RUNE_BUILD_DLL
         GLFW_INCLUDE_NONE
         RUNE_ENABLE_ASSERTS
+        RUNE_ENABLE_PROFILING
     )
 
     target_compile_options(Rune-Engine PRIVATE /Wall)

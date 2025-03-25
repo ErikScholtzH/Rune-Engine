@@ -8,10 +8,12 @@
 namespace Rune {
 
 	OpenGLContext::OpenGLContext(GLFWwindow* windowHandle) : m_WindowHandle(windowHandle) {
+		RUNE_PROFILE_FUNCTION();
 		RUNE_CORE_ASSERT(windowHandle, "Window handle is null!")
 	}
 
 	void OpenGLContext::Init() {
+		RUNE_PROFILE_FUNCTION();
 		glfwMakeContextCurrent(m_WindowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		RUNE_CORE_ASSERT(status, "Failed to initialize Glad!");
@@ -23,6 +25,7 @@ namespace Rune {
 	}
 
 	void OpenGLContext::SwapBuffers() {
+		RUNE_PROFILE_FUNCTION();
 		glfwSwapBuffers(m_WindowHandle);
 	}
 

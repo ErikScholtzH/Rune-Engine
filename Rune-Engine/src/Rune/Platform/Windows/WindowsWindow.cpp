@@ -7,7 +7,6 @@
 
 #include "Rune/Renderer/Platform/OpenGL/OpenGLContext.h"
 
-
 namespace Rune {
 	static uint8_t s_GLFWWindowCount = 0;
 

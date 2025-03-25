@@ -3,14 +3,12 @@
 
 namespace Rune {
 
-	Layer::Layer(const std::string& debugName)
-		: m_DebugName(debugName)
-	{
+	Layer::Layer(const std::string& debugName) : m_DebugName(debugName) {
+		RUNE_PROFILE_FUNCTION();
 	}
 
-	Layer::~Layer()
-	{
-
+	Layer::~Layer() {
+		RUNE_PROFILE_FUNCTION();
 	}
 
 }

@@ -34,7 +34,7 @@ public:
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
 		m_SquareVA = Rune::VertexArray::Create();
-		float squareVertices[5 * 4] = {
+		float squareVertices[4 * 5] = {
 			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
 			 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
 			 0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
@@ -70,12 +70,18 @@ public:
 	}
 
 	void OnUpdate(Rune::Timestep timestep) override {
+		RUNE_PROFILE_FUNCTION();
 		glm::vec3 pos = m_CameraController.GetCamera().GetPosition();
 		m_CameraController.OnUpdate(timestep);
+		RUNE_PROFILE_SCOPE("CameraController::OnUpdate");
 		RUNE_INFO("Camera Pos: ({0}, {1}, {2})", pos.x, pos.y, pos.z);
+
+		RUNE_PROFILE_SCOPE("Renderer Prep");
 		Rune::RenderCommand::SetClearColor({ 0.05f, 0.05f, 0.05f, 1 });
 		Rune::RenderCommand::Clear();
 		Rune::Renderer::BeginScene(m_CameraController.GetCamera());
+
+		RUNE_PROFILE_SCOPE("Renderer Draw");
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 		for (int y = 0; y < 20; y++) {
 			for (int x = 0; x < 20; x++) {
@@ -91,7 +97,7 @@ public:
 	}
 
 	virtual void OnImGuiRender() override {
-
+		RUNE_PROFILE_FUNCTION();
 	}
 
 	void OnEvent(Rune::Event& e) override {

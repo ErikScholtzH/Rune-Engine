@@ -1,51 +1,243 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Rune">
-      <UniqueIdentifier>{DF068C7C-CB3D-8D0D-742A-73106040090F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Rune\Events">
-      <UniqueIdentifier>{E361D78A-4F17-5080-D80B-4A5744C04684}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\Rune.h" />
-    <ClInclude Include="src\Rune\Application.h">
-      <Filter>Rune</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Rune\Core.h">
-      <Filter>Rune</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Rune\EntryPoint.h">
-      <Filter>Rune</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Rune\Events\ApplicationEvent.h">
-      <Filter>Rune\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Rune\Events\Event.h">
-      <Filter>Rune\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Rune\Events\KeyEvent.h">
-      <Filter>Rune\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Rune\Events\MouseEvent.h">
-      <Filter>Rune\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Rune\Log.h">
-      <Filter>Rune</Filter>
-    </ClInclude>
-    <ClInclude Include="src\rune_pch.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\Rune\Application.cpp">
-      <Filter>Rune</Filter>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\CMakeFiles\Rune-Engine.dir\cmake_pch.cxx">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Rune\Log.cpp">
-      <Filter>Rune</Filter>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Application.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\rune_pch.cpp" />
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\CameraController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Core\Log.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Debug\Instrumentator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\ImGui\ImGuiBuild.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\ImGui\ImGuiLayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Layer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\LayerStack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Platform\Windows\WindowsInput.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\IndexBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Model\Model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\Buffers\OpenGLIndexBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\Buffers\OpenGLVertexArray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\Buffers\OpenGLVertexBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\Shaders\OpenGLShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\Textures\OpenGLTexture2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\RenderCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\RendererAPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\VertexArray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\VertexBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\rune_pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="CMakeLists.txt" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\CameraController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Core\Core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Core\Events\ApplicationEvent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Core\Events\Event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Core\Events\KeyEvent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Core\Events\MouseEvent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Core\Log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Core\Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Core\Timestep.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Debug\Instrumentator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\EntryPoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\ImGui\ImGuiLayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\KeyCodes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Layer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\LayerStack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\MouseCodes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Platform\Windows\WindowsInput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Platform\Windows\WindowsWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\GraphicsContext.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\IndexBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Model\Model.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\Buffers\OpenGLIndexBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\Buffers\OpenGLVertexArray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\Buffers\OpenGLVertexBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\OpenGLContext.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\OpenGLRendererAPI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\Shaders\OpenGLShader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\Textures\OpenGLTexture2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\RenderCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Renderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\RendererAPI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\VertexArray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\VertexBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\VertexBufferLayout.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\rune_pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\CMakeFiles\Rune-Engine.dir\Debug\cmake_pch.hxx">
+      <Filter>Precompile Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\CMakeFiles\Rune-Engine.dir\Release\cmake_pch.hxx">
+      <Filter>Precompile Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\CMakeFiles\Rune-Engine.dir\Dist\cmake_pch.hxx">
+      <Filter>Precompile Header File</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{F50EFA1E-CB9E-3800-8080-0EF5B827DBC9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Precompile Header File">
+      <UniqueIdentifier>{6E1D035B-3E6F-3F04-9955-1BBF77F10EFB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{A8293EDC-7F50-30C8-B5E4-AEED6BEB13AF}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

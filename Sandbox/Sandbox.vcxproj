@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -15,134 +18,274 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}</ProjectGuid>
-    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <ProjectGuid>{D0C13175-CFB5-36AF-9E81-687B84E7042E}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Sandbox</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>Sandbox</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
+  <ImportGroup Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LinkIncremental>true</LinkIncremental>
-    <OutDir>..\bin\Debug-windows-x86_64\Sandbox\</OutDir>
-    <IntDir>..\bin-int\Debug-windows-x86_64\Sandbox\</IntDir>
-    <TargetName>Sandbox</TargetName>
-    <TargetExt>.exe</TargetExt>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LinkIncremental>false</LinkIncremental>
-    <OutDir>..\bin\Release-windows-x86_64\Sandbox\</OutDir>
-    <IntDir>..\bin-int\Release-windows-x86_64\Sandbox\</IntDir>
-    <TargetName>Sandbox</TargetName>
-    <TargetExt>.exe</TargetExt>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
-    <LinkIncremental>false</LinkIncremental>
-    <OutDir>..\bin\Dist-windows-x86_64\Sandbox\</OutDir>
-    <IntDir>..\bin-int\Dist-windows-x86_64\Sandbox\</IntDir>
-    <TargetName>Sandbox</TargetName>
-    <TargetExt>.exe</TargetExt>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\bin\$(Configuration)-Windows-x64\Sandbox\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Sandbox.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Sandbox</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\bin\$(Configuration)-Windows-x64\Sandbox\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Sandbox.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Sandbox</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\bin\$(Configuration)-Windows-x64\Sandbox\Dist\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">Sandbox.dir\Dist\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">Sandbox</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">true</GenerateManifest>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>RUNE_PLATFORM_WINDOWS;RUNE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Rune-Engine\vendor\spdlog\include;..\Rune-Engine\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\spdlog\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\GLFW\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glad\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glm;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\imgui;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;RUNE_PLATFORM_WINDOWS;RUNE_DEBUG;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;RUNE_PLATFORM_WINDOWS;RUNE_DEBUG;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\spdlog\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\GLFW\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glad\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glm;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\imgui;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\spdlog\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\GLFW\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glad\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glm;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\imgui;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>..\Rune-Engine\Debug\Rune-Engine.lib;..\Rune-Engine\thirdparty\GLFW\src\Debug\glfw3.lib;..\Rune-Engine\Debug\glad.lib;..\Rune-Engine\Debug\imgui.lib;..\Rune-Engine\Debug\stb_image.lib;opengl32.lib;gdi32.lib;user32.lib;shell32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/bin/$(Configuration)-Windows-x64/Sandbox/Debug/Sandbox.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/bin/$(Configuration)-Windows-x64/Sandbox/Debug/Sandbox.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
     </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>RUNE_PLATFORM_WINDOWS;RUNE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Rune-Engine\vendor\spdlog\include;..\Rune-Engine\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <Optimization>Full</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <MinimalRebuild>false</MinimalRebuild>
-      <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\spdlog\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\GLFW\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glad\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glm;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\imgui;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;RUNE_PLATFORM_WINDOWS;RUNE_RELEASE;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;RUNE_PLATFORM_WINDOWS;RUNE_RELEASE;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\spdlog\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\GLFW\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glad\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glm;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\imgui;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\spdlog\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\GLFW\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glad\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glm;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\imgui;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
     <Link>
+      <AdditionalDependencies>..\Rune-Engine\Release\Rune-Engine.lib;..\Rune-Engine\thirdparty\GLFW\src\Release\glfw3.lib;..\Rune-Engine\Release\glad.lib;..\Rune-Engine\Release\imgui.lib;..\Rune-Engine\Release\stb_image.lib;opengl32.lib;gdi32.lib;user32.lib;shell32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/bin/$(Configuration)-Windows-x64/Sandbox/Release/Sandbox.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/bin/$(Configuration)-Windows-x64/Sandbox/Release/Sandbox.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
     </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>RUNE_PLATFORM_WINDOWS;RUNE_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Rune-Engine\vendor\spdlog\include;..\Rune-Engine\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <Optimization>Full</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <MinimalRebuild>false</MinimalRebuild>
-      <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\spdlog\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\GLFW\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glad\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glm;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\imgui;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization></Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;RUNE_PLATFORM_WINDOWS;RUNE_DIST;CMAKE_INTDIR="Dist"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;RUNE_PLATFORM_WINDOWS;RUNE_DIST;CMAKE_INTDIR=\"Dist\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\spdlog\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\GLFW\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glad\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glm;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\imgui;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\spdlog\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\GLFW\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glad\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glm;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\imgui;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
     <Link>
+      <AdditionalDependencies>..\Rune-Engine\Dist\Rune-Engine.lib;..\Rune-Engine\thirdparty\GLFW\src\Dist\glfw3.lib;..\Rune-Engine\Dist\glad.lib;..\Rune-Engine\Dist\imgui.lib;..\Rune-Engine\Dist\stb_image.lib;opengl32.lib;gdi32.lib;user32.lib;shell32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/bin/$(Configuration)-Windows-x64/Sandbox/Dist/Sandbox.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/bin/$(Configuration)-Windows-x64/Sandbox/Dist/Sandbox.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
     </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\SandboxApp.cpp" />
+    <CustomBuild Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Sandbox\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Sandbox/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SD:/School + Work/Desktop/Personal Projects/C++/Rune-Engine" "-BD:/School + Work/Desktop/Personal Projects/C++/Rune-Engine" --check-stamp-file "D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Sandbox/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Sandbox\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Sandbox/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SD:/School + Work/Desktop/Personal Projects/C++/Rune-Engine" "-BD:/School + Work/Desktop/Personal Projects/C++/Rune-Engine" --check-stamp-file "D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Sandbox/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Sandbox\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">Building Custom Rule D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Sandbox/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SD:/School + Work/Desktop/Personal Projects/C++/Rune-Engine" "-BD:/School + Work/Desktop/Personal Projects/C++/Rune-Engine" --check-stamp-file "D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Sandbox/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Sandbox\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">false</LinkObjects>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Rune-Engine\Rune-Engine.vcxproj">
-      <Project>{022753F0-6EDC-CBE5-F7D0-C5BC6385C2E9}</Project>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Sandbox\src\SandboxApp.cpp" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\ZERO_CHECK.vcxproj">
+      <Project>{A44C683E-6728-3CAA-89DC-B0ECB1C0D648}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="CMakeLists.txt" />
+    <ProjectReference Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\Rune-Engine.vcxproj">
+      <Project>{01F64498-A47F-340A-9B21-54520B702CCD}</Project>
+      <Name>Rune-Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\glad.vcxproj">
+      <Project>{E820A49D-796D-3B2D-98D3-BBF5DC7FE541}</Project>
+      <Name>glad</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\GLFW\src\glfw.vcxproj">
+      <Project>{A10D0873-EEAF-3B98-9F3B-CBAF893A546D}</Project>
+      <Name>glfw</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\imgui.vcxproj">
+      <Project>{733CAFED-35B8-39BD-963B-D3BF9FC51548}</Project>
+      <Name>imgui</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\stb_image.vcxproj">
+      <Project>{82AF69D0-46C8-3A50-875D-1681A55412FD}</Project>
+      <Name>stb_image</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -15,160 +18,438 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{022753F0-6EDC-CBE5-F7D0-C5BC6385C2E9}</ProjectGuid>
-    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <ProjectGuid>{01F64498-A47F-340A-9B21-54520B702CCD}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Rune-Engine</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>Rune-Engine</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
+  <ImportGroup Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LinkIncremental>true</LinkIncremental>
-    <OutDir>..\bin\Debug-windows-x86_64\Rune-Engine\</OutDir>
-    <IntDir>..\bin-int\Debug-windows-x86_64\Rune-Engine\</IntDir>
-    <TargetName>Rune-Engine</TargetName>
-    <TargetExt>.dll</TargetExt>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LinkIncremental>false</LinkIncremental>
-    <OutDir>..\bin\Release-windows-x86_64\Rune-Engine\</OutDir>
-    <IntDir>..\bin-int\Release-windows-x86_64\Rune-Engine\</IntDir>
-    <TargetName>Rune-Engine</TargetName>
-    <TargetExt>.dll</TargetExt>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
-    <LinkIncremental>false</LinkIncremental>
-    <OutDir>..\bin\Dist-windows-x86_64\Rune-Engine\</OutDir>
-    <IntDir>..\bin-int\Dist-windows-x86_64\Rune-Engine\</IntDir>
-    <TargetName>Rune-Engine</TargetName>
-    <TargetExt>.dll</TargetExt>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Rune-Engine.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Rune-Engine</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Rune-Engine.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Rune-Engine</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\Dist\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">Rune-Engine.dir\Dist\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">Rune-Engine</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>rune_pch.h</PrecompiledHeaderFile>
-      <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>RUNE_PLATFORM_WINDOWS;RUNE_BUILD_DLL;RUNE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\spdlog\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\GLFW\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glad\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glm;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\imgui;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/Rune-Engine.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;RUNE_PLATFORM_WINDOWS;RUNE_BUILD_DLL;GLFW_INCLUDE_NONE;RUNE_ENABLE_ASSERTS;RUNE_DEBUG;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ImportLibrary>..\bin\Debug-windows-x86_64\Rune-Engine\Rune-Engine.lib</ImportLibrary>
-    </Link>
-    <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Debug-windows-x86_64\Rune-Engine\Rune-Engine.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Rune-Engine\Rune-Engine.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Rune-Engine\Rune-Engine.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)</Command>
-    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;RUNE_PLATFORM_WINDOWS;RUNE_BUILD_DLL;GLFW_INCLUDE_NONE;RUNE_ENABLE_ASSERTS;RUNE_DEBUG;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\spdlog\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\GLFW\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glad\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glm;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\imgui;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\spdlog\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\GLFW\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glad\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glm;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\imgui;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>rune_pch.h</PrecompiledHeaderFile>
-      <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>RUNE_PLATFORM_WINDOWS;RUNE_BUILD_DLL;RUNE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <Optimization>Full</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <MinimalRebuild>false</MinimalRebuild>
-      <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\spdlog\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\GLFW\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glad\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glm;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\imgui;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/Rune-Engine.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;RUNE_PLATFORM_WINDOWS;RUNE_BUILD_DLL;GLFW_INCLUDE_NONE;RUNE_ENABLE_ASSERTS;RUNE_RELEASE;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <ImportLibrary>..\bin\Release-windows-x86_64\Rune-Engine\Rune-Engine.lib</ImportLibrary>
-    </Link>
-    <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Release-windows-x86_64\Rune-Engine\Rune-Engine.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Rune-Engine\Rune-Engine.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Rune-Engine\Rune-Engine.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul)</Command>
-    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;RUNE_PLATFORM_WINDOWS;RUNE_BUILD_DLL;GLFW_INCLUDE_NONE;RUNE_ENABLE_ASSERTS;RUNE_RELEASE;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\spdlog\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\GLFW\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glad\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glm;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\imgui;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\spdlog\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\GLFW\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glad\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glm;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\imgui;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>rune_pch.h</PrecompiledHeaderFile>
-      <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>RUNE_PLATFORM_WINDOWS;RUNE_BUILD_DLL;RUNE_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <Optimization>Full</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <MinimalRebuild>false</MinimalRebuild>
-      <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\spdlog\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\GLFW\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glad\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glm;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\imgui;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization></Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/Rune-Engine.dir/Dist/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;RUNE_PLATFORM_WINDOWS;RUNE_BUILD_DLL;GLFW_INCLUDE_NONE;RUNE_ENABLE_ASSERTS;RUNE_DIST;CMAKE_INTDIR="Dist"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <ImportLibrary>..\bin\Dist-windows-x86_64\Rune-Engine\Rune-Engine.lib</ImportLibrary>
-    </Link>
-    <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Dist-windows-x86_64\Rune-Engine\Rune-Engine.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Rune-Engine\Rune-Engine.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Rune-Engine\Rune-Engine.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)</Command>
-    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;RUNE_PLATFORM_WINDOWS;RUNE_BUILD_DLL;GLFW_INCLUDE_NONE;RUNE_ENABLE_ASSERTS;RUNE_DIST;CMAKE_INTDIR=\"Dist\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\spdlog\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\GLFW\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glad\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glm;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\imgui;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\spdlog\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\GLFW\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glad\include;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\glm;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\imgui;D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Rune.h" />
-    <ClInclude Include="src\Rune\Application.h" />
-    <ClInclude Include="src\Rune\Core.h" />
-    <ClInclude Include="src\Rune\EntryPoint.h" />
-    <ClInclude Include="src\Rune\Events\ApplicationEvent.h" />
-    <ClInclude Include="src\Rune\Events\Event.h" />
-    <ClInclude Include="src\Rune\Events\KeyEvent.h" />
-    <ClInclude Include="src\Rune\Events\MouseEvent.h" />
-    <ClInclude Include="src\Rune\Log.h" />
-    <ClInclude Include="src\rune_pch.h" />
+    <CustomBuild Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SD:/School + Work/Desktop/Personal Projects/C++/Rune-Engine" "-BD:/School + Work/Desktop/Personal Projects/C++/Rune-Engine" --check-stamp-file "D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SD:/School + Work/Desktop/Personal Projects/C++/Rune-Engine" "-BD:/School + Work/Desktop/Personal Projects/C++/Rune-Engine" --check-stamp-file "D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">Building Custom Rule D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SD:/School + Work/Desktop/Personal Projects/C++/Rune-Engine" "-BD:/School + Work/Desktop/Personal Projects/C++/Rune-Engine" --check-stamp-file "D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">false</LinkObjects>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Rune\Application.cpp" />
-    <ClCompile Include="src\Rune\Log.cpp" />
-    <ClCompile Include="src\rune_pch.cpp">
-      <PrecompiledHeader>Create</PrecompiledHeader>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\CMakeFiles\Rune-Engine.dir\cmake_pch.cxx">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/Rune-Engine.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/Rune-Engine.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/Rune-Engine.dir/Dist/cmake_pch.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Application.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\CameraController.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Core\Log.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Debug\Instrumentator.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\ImGui\ImGuiBuild.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\ImGui\ImGuiLayer.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Layer.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\LayerStack.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Platform\Windows\WindowsInput.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Platform\Windows\WindowsWindow.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Camera.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\IndexBuffer.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Model\Model.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\Buffers\OpenGLIndexBuffer.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\Buffers\OpenGLVertexArray.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\Buffers\OpenGLVertexBuffer.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\OpenGLContext.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\OpenGLRendererAPI.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\Shaders\OpenGLShader.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\Textures\OpenGLTexture2D.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\RenderCommand.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Renderer.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\RendererAPI.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Shader.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Texture.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\VertexArray.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\VertexBuffer.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\rune_pch.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">D:/School + Work/Desktop/Personal Projects/C++/Rune-Engine/Rune-Engine/CMakeFiles/Rune-Engine.dir/Dist/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Application.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\CameraController.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Core\Core.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Core\Events\ApplicationEvent.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Core\Events\Event.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Core\Events\KeyEvent.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Core\Events\MouseEvent.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Core\Log.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Core\Resource.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Core\Timestep.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Debug\Instrumentator.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\EntryPoint.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Input.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\KeyCodes.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Layer.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\LayerStack.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\MouseCodes.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Camera.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\GraphicsContext.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\IndexBuffer.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Model\Model.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\Buffers\OpenGLIndexBuffer.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\Buffers\OpenGLVertexArray.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\Buffers\OpenGLVertexBuffer.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\OpenGLRendererAPI.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\Shaders\OpenGLShader.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Platform\OpenGL\Textures\OpenGLTexture2D.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\RenderCommand.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Renderer.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\RendererAPI.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Shader.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\Texture.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\VertexArray.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\VertexBuffer.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Renderer\VertexBufferLayout.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\Rune\Window.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\src\rune_pch.h" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\CMakeFiles\Rune-Engine.dir\Debug\cmake_pch.hxx" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\CMakeFiles\Rune-Engine.dir\Release\cmake_pch.hxx" />
+    <ClInclude Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\CMakeFiles\Rune-Engine.dir\Dist\cmake_pch.hxx" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Text Include="CMakeLists.txt" />
+    <ProjectReference Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\ZERO_CHECK.vcxproj">
+      <Project>{A44C683E-6728-3CAA-89DC-B0ECB1C0D648}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\glad.vcxproj">
+      <Project>{E820A49D-796D-3B2D-98D3-BBF5DC7FE541}</Project>
+      <Name>glad</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\thirdparty\GLFW\src\glfw.vcxproj">
+      <Project>{A10D0873-EEAF-3B98-9F3B-CBAF893A546D}</Project>
+      <Name>glfw</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\imgui.vcxproj">
+      <Project>{733CAFED-35B8-39BD-963B-D3BF9FC51548}</Project>
+      <Name>imgui</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\School + Work\Desktop\Personal Projects\C++\Rune-Engine\Rune-Engine\stb_image.vcxproj">
+      <Project>{82AF69D0-46C8-3A50-875D-1681A55412FD}</Project>
+      <Name>stb_image</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

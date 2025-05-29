@@ -14,10 +14,11 @@
 namespace Rune {
 	class Application {
 	public:
-		Application();
+		Application(const std::string name);
 		virtual ~Application();
 
-		void run();
+		void Run();
+		void Close();
 
 		void OnEvent(Event& e);
 
@@ -26,9 +27,12 @@ namespace Rune {
 
 		inline Window& GetWindow() { return *m_Window; }
 		inline static Application& Get() { return *s_Instance; }
+		inline ImGuiLayer* GetImGuiLayer() { return m_ImGuiLayer; }
+
 	private:
 		bool onWindowClose(WindowCloseEvent& e);
 
+		std::string m_Name;
 		Scope<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;

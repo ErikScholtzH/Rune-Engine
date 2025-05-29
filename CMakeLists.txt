@@ -27,4 +27,5 @@ function(set_target_outputs target)
 endfunction()
 
 add_subdirectory(Rune-Engine)
+add_subdirectory(Orb-Editor)
 add_subdirectory(Sandbox)

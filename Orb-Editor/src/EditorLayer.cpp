@@ -1,13 +1,8 @@
-#include <Rune.h>
+#include "EditorLayer.h"
 
-#include "glm/glm.hpp"
-#include "imgui.h"
-#include <filesystem>
+namespace Rune {
 
-
-class ExampleLayer : public Rune::Layer {
-public:
-	ExampleLayer() : Layer("Example"), m_SquarePosition(0.0f) {
+	EditorLayer::EditorLayer() : Layer("EditorLayer"), m_SquarePosition(0.0f) {
 		m_CameraController = Rune::CameraController(10.0f / 9.0f, Rune::Camera::CameraType::Perspective, glm::vec3(0.0f,0.0f,2.0f));
 
 		m_VertexArray = Rune::VertexArray::Create();
@@ -67,25 +62,31 @@ public:
 		m_Texture = Rune::Texture2D::Create(texture1.string());
 		std::dynamic_pointer_cast<Rune::Shader>(m_TextureShader)->Bind();
 		std::dynamic_pointer_cast<Rune::Shader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
-	}
-	
 
-	void OnAttach() {
+	}
+
+	void EditorLayer::OnAttach() {
+		RUNE_PROFILE_FUNCTION();
+		FramebufferSpecification FramebufferSpec;
+		FramebufferSpec.Width = 1280;
+		FramebufferSpec.Height = 720;
+		m_Framebuffer = Framebuffer::Create(FramebufferSpec);
+	}
+	void EditorLayer::OnDetach() {
 		RUNE_PROFILE_FUNCTION();
 	}
-
-	void OnDetach() {
-		RUNE_PROFILE_FUNCTION();
-	}
-
-	void OnUpdate(Rune::Timestep timestep) override {
+	void EditorLayer::OnUpdate(Rune::Timestep timestep) {
 		RUNE_PROFILE_FUNCTION();
 		glm::vec3 pos = m_CameraController.GetCamera().GetPosition();
-		m_CameraController.OnUpdate(timestep);
+		if (m_IsViewportFocused) {
+			m_CameraController.OnUpdate(timestep);
+		}
 		RUNE_PROFILE_SCOPE("CameraController::OnUpdate");
 		RUNE_INFO("Camera Pos: ({0}, {1}, {2})", pos.x, pos.y, pos.z);
+		RUNE_INFO("Aspect Ratio: {0}", m_CameraController.GetCamera().GetAspectRatio());
+		RUNE_PROFILE_SCOPE("EditorLayer Render Prep");
 
-		RUNE_PROFILE_SCOPE("Renderer Prep");
+		m_Framebuffer->Bind();
 		Rune::RenderCommand::SetClearColor({ 0.05f, 0.05f, 0.05f, 1 });
 		Rune::RenderCommand::Clear();
 		Rune::Renderer::BeginScene(m_CameraController.GetCamera());
@@ -103,9 +104,10 @@ public:
 		Rune::Renderer::Submit(m_SquareVA, m_TextureShader, glm::mat4(1.0f));
 		Rune::Renderer::Submit(m_VertexArray, m_Shader);
 		Rune::Renderer::EndScene();
-	}
 
-	virtual void OnImGuiRender() override {
+		m_Framebuffer->Unbind();
+	}
+	void EditorLayer::OnImGuiRender()  {
 		RUNE_PROFILE_FUNCTION();
 		// Note: Switch this to true to enable dockspace
 		static bool dockingEnabled = true;
@@ -115,8 +117,7 @@ public:
 			static bool opt_fullscreen_persistant = true;
 			bool opt_fullscreen = opt_fullscreen_persistant;
 			static ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_None;
-
-			// We are using the ImGuiWindowFlags_NoDocking flag to make the parent window not dockable into,
+				// We are using the ImGuiWindowFlags_NoDocking flag to make the parent window not dockable into,
 			// because it would be confusing to have two docking targets within each others.
 			ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoDocking;
 			if (opt_fullscreen)
@@ -134,7 +135,6 @@ public:
 			// When using ImGuiDockNodeFlags_PassthruCentralNode, DockSpace() will render our background and handle the pass-thru hole, so we ask Begin() to not render a background.
 			if (dockspace_flags & ImGuiDockNodeFlags_PassthruCentralNode)
 				window_flags |= ImGuiWindowFlags_NoBackground;
-
 			// Important: note that we proceed even if Begin() returns false (aka window is collapsed).
 			// This is because we want to keep our DockSpace() active. If a DockSpace() is inactive, 
 			// all active windows docked into it will lose their parent and become undocked.
@@ -143,67 +143,52 @@ public:
 			ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
 			ImGui::Begin("DockSpace Demo", &dockspaceOpen, window_flags);
 			ImGui::PopStyleVar();
-
-			if (opt_fullscreen)
+				if (opt_fullscreen)
 				ImGui::PopStyleVar(2);
-
-			// DockSpace
+				// DockSpace
 			ImGuiIO& io = ImGui::GetIO();
 			if (io.ConfigFlags & ImGuiConfigFlags_DockingEnable)
 			{
 				ImGuiID dockspace_id = ImGui::GetID("MyDockSpace");
 				ImGui::DockSpace(dockspace_id, ImVec2(0.0f, 0.0f), dockspace_flags);
 			}
-
-			if (ImGui::BeginMenuBar())
+				if (ImGui::BeginMenuBar())
 			{
 				if (ImGui::BeginMenu("File"))
 				{
 					// Disabling fullscreen would allow the window to be moved to the front of other windows, 
 					// which we can't undo at the moment without finer window depth/z control.
 					//ImGui::MenuItem("Fullscreen", NULL, &opt_fullscreen_persistant);
-
-					if (ImGui::MenuItem("Exit")) Rune::Application::Get().Close();
+					if (ImGui::MenuItem("Exit")) Application::Get().Close();
 					ImGui::EndMenu();
 				}
-
-				ImGui::EndMenuBar();
+					ImGui::EndMenuBar();
 			}
+			ImGui::Begin("Viewport");
+			m_IsViewportFocused = ImGui::IsWindowFocused();
+			m_IsViewportHovered = ImGui::IsWindowHovered();
+			Application::Get().GetImGuiLayer()->BlockEvents(!m_IsViewportFocused || !m_IsViewportHovered);
+
+			ImVec2 ViewportPannelSize = ImGui::GetContentRegionAvail();
+			if (m_ViewportSize != *(glm::vec2*)&ViewportPannelSize) {
+				m_Framebuffer->Resize((uint32_t)ViewportPannelSize.x, (uint32_t)ViewportPannelSize.y);
+				m_ViewportSize = { ViewportPannelSize.x, ViewportPannelSize.y };
+				
+				auto& camera = m_CameraController.GetCamera();
+				float AspectRatio = m_ViewportSize.x / m_ViewportSize.y;
+				//camera.SetAspectRatio(AspectRatio);
+				camera.SetProjection(camera.GetFov(), camera.GetAspectRatio(), camera.GetNearPlane(), camera.GetFarPlane()); // TODO fix resizing bug FIXME
+			}
+			uint32_t textureID = m_Framebuffer->GetColourAttachmentRendererID();
+			ImGui::Image(static_cast<ImTextureID>(textureID), ImVec2{1280, 720}, ImVec2{0,1}, ImVec2{1,0});
+			ImGui::End();
 			ImGui::End();
 		}
 	}
 
-	void OnEvent(Rune::Event& e) override {
+	void EditorLayer::OnEvent(Event& e) {
 		m_CameraController.OnEvent(e);
 	}
 
-private:
-	Rune::Ref<Rune::Shader> m_Shader;
-	Rune::Ref<Rune::VertexArray> m_VertexArray;
-	Rune::Ref<Rune::Shader> m_BlueShader;
-	
-	Rune::Ref<Rune::VertexArray> m_SquareVA;
-
-	Rune::CameraController m_CameraController;
-
-	glm::vec3 m_SquarePosition;
-	float m_SquareMoveSpeed = 1.0f;
-
-	Rune::Ref<Rune::Shader> m_TextureShader;
-	Rune::Ref<Rune::Texture2D> m_Texture;
-};
-
-class Sandbox : public Rune::Application {
-public: 
-	Sandbox(std::string name) : Application(name) {
-		PushLayer(new ExampleLayer());
-	}
-
-	~Sandbox() {
-
-	}
-};
-
-Rune::Application* Rune::CreateApplication() {
-	return new Sandbox("Sandbox - Rune Engine");
 }
+	

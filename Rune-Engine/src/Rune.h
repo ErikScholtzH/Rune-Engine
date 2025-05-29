@@ -21,11 +21,9 @@
 #include "Rune/Renderer/Renderer.h"
 #include "Rune/Renderer/Shader.h"
 #include "Rune/Renderer/Texture.h"
+#include "Rune/Renderer/Framebuffer.h"
 #include "Rune/Renderer/VertexArray.h"
 #include "Rune/Renderer/VertexBuffer.h"
 #include "Rune/Renderer/IndexBuffer.h"
 #include "Rune/Renderer/Camera.h"
 
-
-// entry point
-#include "Rune/EntryPoint.h"

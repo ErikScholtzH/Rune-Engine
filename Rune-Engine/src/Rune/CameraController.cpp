@@ -66,10 +66,10 @@ namespace Rune {
 		return false;
 	}
 
-	bool CameraController::OnWindowResized(WindowResizeEvent& e) {
+	bool CameraController::OnWindowResized(WindowResizeEvent& e) { // TODO this does not resize properly FIXME
 		RUNE_PROFILE_FUNCTION();
 		m_AspectRatio = (float)e.GetWidth() / (float)e.GetHeight();
-		m_Camera.SetAspectRatio(m_AspectRatio);
+		//m_Camera.SetAspectRatio(m_AspectRatio);
 		m_Camera.SetProjection(m_Camera.GetFov(), m_Camera.GetAspectRatio(), m_Camera.GetNearPlane(), m_Camera.GetFarPlane());
 		return false;
 	}

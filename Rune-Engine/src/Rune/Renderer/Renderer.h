@@ -7,7 +7,6 @@
 #include "Rune/Renderer/Shader.h"
 
 namespace Rune {
-
 	class Renderer {
 	public:
 

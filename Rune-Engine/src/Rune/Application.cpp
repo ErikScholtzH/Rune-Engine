@@ -16,12 +16,12 @@ namespace Rune {
 
 	Application* Application::s_Instance = nullptr;
 
-	Application::Application() {
+	Application::Application(const std::string name) : m_Name(name) {
 		RUNE_PROFILE_FUNCTION();
 		RUNE_CORE_ASSERT(!s_Instance, "Application already running");
 		s_Instance = this;
 
-		m_Window = Scope<Window>(Window::Create());
+		m_Window = Scope<Window>(Window::Create(WindowProps(name)));
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
 		Renderer::Init();
@@ -54,7 +54,7 @@ namespace Rune {
 		}
 	}
 
-	void Application::run() { // GAME LOOP
+	void Application::Run() { // GAME LOOP
 		while (m_Running) {
 			float time = glfwGetTime(); // TODO Temporary need to create platform specific code
 			Timestep timestep = time - m_LastFrameTime;
@@ -70,8 +70,12 @@ namespace Rune {
 		}
 	}
 
+	void Application::Close() {
+		m_Running = false;
+	}
+
 	bool Application::onWindowClose(WindowCloseEvent& e) {
-		this->m_Running = false;
+		m_Running = false;
 		return true;
 	}
 }

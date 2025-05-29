@@ -29,7 +29,7 @@ namespace Rune {
 
 		stbi_set_flip_vertically_on_load(true);
 		stbi_uc* data = nullptr;
-		RUNE_PROFILE_SCOPE("stbi_load - OpenGLTexture2D::OpenGLTexture2D(const std:string&)");
+		// RUNE_PROFILE_SCOPE("stbi_load - OpenGLTexture2D::OpenGLTexture2D(const std:string&)");  // TODO Fix
 		data = stbi_load(path.c_str(), &width, &height, &channels, 0);
 		RUNE_CORE_ASSERT(data, "Failed to load image");
 

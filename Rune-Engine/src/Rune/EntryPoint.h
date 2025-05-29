@@ -17,7 +17,7 @@ int main(int argc, char** argv) {
 	RUNE_PROFILE_END_SESSION();
 
 	RUNE_PROFILE_BEGIN_SESSION("Runtime", "Profiling-Runtime.json");
-	app->run();
+	app->Run();
 	RUNE_PROFILE_END_SESSION();
 
 	RUNE_PROFILE_BEGIN_SESSION("Shutdown", "Profiling-Shutdown.json");

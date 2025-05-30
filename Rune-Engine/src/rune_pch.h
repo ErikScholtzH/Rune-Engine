@@ -1,5 +1,8 @@
 #pragma once
 
+#define RUNE_ENABLE_ASSERTS 1
+#define RUNE_ENABLE_PROFILING 1
+
 #include <algorithm>
 #include <functional>
 #include <iostream>
@@ -18,6 +21,3 @@
 #ifdef RUNE_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif
-
-#define RUNE_ENABLE_ASSERTS 1
-#define RUNE_ENABLE_PROFILING 1

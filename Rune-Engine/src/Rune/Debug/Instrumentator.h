@@ -106,10 +106,13 @@ namespace Rune {
 	};
 }
 
+#define RUNE_CONCAT_IMPL(x, y) x##y
+#define RUNE_CONCAT(x, y) RUNE_CONCAT_IMPL(x, y)
+
 #if RUNE_ENABLE_PROFILING
 	#define RUNE_PROFILE_BEGIN_SESSION(name, filepath)	::Rune::Instrumentor::Get().BeginSession(name, filepath)
 	#define RUNE_PROFILE_END_SESSION()					::Rune::Instrumentor::Get().EndSession()
-	#define RUNE_PROFILE_SCOPE(name)					::Rune::InstrumentationTimer timer##__LINE__(name);
+	#define RUNE_PROFILE_SCOPE(name)					::Rune::InstrumentationTimer RUNE_CONCAT(timer, __LINE__)(name);
 	#define RUNE_PROFILE_FUNCTION()						RUNE_PROFILE_SCOPE(__FUNCSIG__)
 #else
 	#define RUNE_PROFILE_BEGIN_SESSION(name, filepath)
